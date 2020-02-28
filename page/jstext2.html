@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var stringHello = "你好";
+        var numberAge = 11;
+        var booleanLive = true;
+        var nullGrilGriend = null;
+        var favsong = undefined;
+        var bike= {
+            'name':'自行车',
+            'status':'掉链子'
+        };
+        var x = 34;
+        var y = 34.00;//x===y
+        var sayHello = "nh!\"你好\"";//双（单）引号里想用一样的双（单）引号必须用\转义处理
+        //null指空值或曾赋过值 但现在没有值，而undefined指指没有值或从未被赋值
+        //typeof查看值的类型 返回类型的字符串值
+        var a
+        typeof a;//返回"undefined"
+        document.write(a+"<br>");
+
+        
+        document.write(typeof 10+"<br>");//返回"number"
+
+        var num=10;
+        document.write(num == 8+"<br>");//返回false
+        //===为绝对等于 值和类型都相等才相等
+
+        //&&逻辑与 同时为ture才为true
+        //||逻辑或   ！取反
+
+        var coursename1= 'javascript';
+        var coursename2= '真好玩';
+
+       // var character = coersename1[5]; //使用索引位置访问字符串的字符 ，索引从0开始
+        var len = coursename1.length;//可计算字符串长度
+        document.write(len+"<br>");
+        document.write(coursename1+coursename2+"<br>");//+可以将多个字符串连接起来
+       // coursename1[2]='d';//coursename依然是javascript 字符串一旦被创建就无法被改变
+        coursename1='jadascript'//改变字符串的唯一办法就是重新赋值
+        document.write(coursename1+"<br>");
+
+    </script>
+    
+</body>
+</html>

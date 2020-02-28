@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var person = {
+        name:'Poi',
+        age:10,
+        favColor:'blue',
+        height:180,
+        friends:['everything']//.或[]用来更新对象属性
+    }
+    var x = person.age;
+    var y = person['age'];//两种方式都可以访问person的年龄
+    console.log(person.name.length);//输出2
+    person.name = 'happyCamper';
+    person['name']='happyCamper';//两种方法都可以更改name
+
+    person.sex = '男'//也可以用更改属性的方法添加属性
+
+    var c1 = person['age'];//c1=1
+    //删除age属性
+    delete person['age']
+    var c2 = person.age;//c2=undefined
+    console.log(person)
+
+    //使用String对象的toUpperCase()方法将文本转换为大写
+    var message = 'hello';
+    var xm=message.toUpperCase();
+    //使用[]读取对象属性
+    var a = 'age'
+    var myObj = {
+        name:'Nero',
+        age:'30',
+        eat:function(){
+            return 'eating'
+        }
+    }
+    console.log(myObj['name'])
+    console.log(myObj[a])//可以用变量访问对象 返回30
+    console.log(myObj['eat']())//返归eating
+
+
+    //对象构造器
+    function person(first,last,age,eyecolor){
+        this.first=first;
+        this.last=last;
+        this.age=age;
+        this.eyecolor=eyecolor;
+    }
+    //一旦有了对象构造器 就可以创建新的对象实例
+    var me = new person('poi','Da',19,'blue');
+    var myFather = new person('John','DAAA',50,'green');
+    console.log(myFather.age);//输出50
+    console.log(me.first);//输出Poi
+
+    //对象初始化
+    var John = {
+        name:'John',
+        age:25
+    }
+    var Loen = {
+        name:'Loen',
+        age:25
+    }
+
+    //函数内部可以用this来访问对象属性和方法
+    //在构造函数外部可以定义一个函数，通过函数名关联到对象属性上
+    function student(name,age){
+        this.name=name
+        this.age=age
+        this.yearOfBidth = bornYear//关联外部 不需要写括号
+    }
+    function bornYear(){
+        return new Date().getFullYear -this.age
+    }
+</script>
+</body>
+</html>

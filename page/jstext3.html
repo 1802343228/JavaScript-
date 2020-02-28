@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=car, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var course = 1;
+    if(course == 1){
+        document.write("<h1>html教程</h1>");
+    }
+    else if(couese == 2){
+        document.write("<h1>css教程</h1>");
+    }else{
+        document.write("<h1>js教程</h1>");
+    }
+
+    function myFunction(){
+        //switch语句用于不同条件的选择
+        var x;
+        var d=new Date().getDate();获取周几的方法
+        switch(d){
+            case 0:x="今天周日"
+            break;
+            case 1:x="今天周一"
+            break;
+            case 2:x="今天周二"
+            break;
+            case 3:x="今天周三"
+            break;
+            case 4:x="今天周四"
+            break;
+            case 5:x="今天周五"
+            break;
+            case 6:x="今天周六"
+            break;
+        }
+        return x;
+
+    }
+    //alert(myFuncetion());//alert显示函数的返回值
+
+    var stars=['菅田将晖','桥本环奈','斋藤飞鸟','小栗旬','石原里美','木村良平'];
+    for(var i = 0;i < stars.length;i++){
+        document.write(stars[i]+'<br>');
+    }
+    //将1-9的计数添加到myAray
+    var myArray = [];
+    for(var i = 1; i < 10; i += 2){
+        myArray.push(i);
+    }
+
+    var x = '',i = 0;
+    do{
+        x = x +'number' + i +'<br>';
+        i++;
+    }
+    while(i<5)
+    document.write(x);
+    </script>
+</body>
+</html>

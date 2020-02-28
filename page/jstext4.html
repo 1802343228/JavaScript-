@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       // function myFunction(){
+        //    alert("调用一个函数！");
+        //}
+        //myFuncetion();
+
+        //隐式参数
+       // var arguments=[100,10,11,112];
+       // function sum(){
+      //      return arguments[0]+arguments[1];
+       // }
+       // sum(1,2)
+
+        function sayHello(name,age){
+            document.write(name+'年龄是：'+age);
+        }
+        //调用多个函数时 应按顺序赋值
+        sayHello('poi',20);//输出：poi的年龄20
+        sayHello(20,'poi');//输出：20的年龄是poi
+        sayHello('poi');//输出poi的年龄是undefined岁
+
+        var carName = '大众';
+        function carFunction(){
+            carName="大众";//此处可调用carName变量 
+            //没有使用var声明 则此变量为全局变量
+            //但是如果在其他地方定义一个变量名与全局变量名相同 就会出现bug 所以总是要用var声明
+
+        }
+         
+        //prompt提示框 返回输入值或null
+        var user = prompt('请输入你的名字');
+        alert(user);
+
+        //confirm确认框 单击确定返回true 取消返回false
+        var result = confirm('您确定要离开这个页面吗');
+        if(result == true){
+            alert('感谢你的光临')
+        }else{
+            alert('感谢您继续使用我们的服务');
+        }
+    </script>
+</body>
+</html>

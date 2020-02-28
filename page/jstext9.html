@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="tip">这边显示提示</p>
+    <h2 id="tip">这边显示提示</h2>
+    <hr>
+    <p onclick="clickfn()">点击我看看</p>
+    <br><br>
+    <input type="text" onfocus="focusfn()" onblur="blurfn()" value="获得焦点"/>
+    <br><br>
+    <!--<div onmouseover="moverfn()" onmouseout="moutfn()">-->
+        鼠标移动进来看看
+    </div>
+    <button onclick="show()">点击我</button>
+    <input type="text" id="name" onchange="change()"/>
+    <button id="demo">开始</button>
+
+    <!--幻灯片案例-->
+    <div>
+        <button onclick="prev()">上一张</button>
+        <img id="slider" src="/image/1.jpg"/>
+        <button onclick="next()">下一张</button>
+    </div>
+
+    <!--表单验证-->
+    <form onsubmit="return validate()" method="post">
+        Number:<input type="text" name="num1" id="num1">
+        <br/>
+        Rrepeat:<input type="text" name="num2" id="num2">
+        <br/>
+        <input type="submit" value="submit"/>
+    </form>
+    <script>
+        //处理事件
+        //当用户单击指定按钮时 弹出一个窗口
+       function show(){
+           alert("你好 我在这里")
+       }
+       var x = document.getElementById("demo");
+       //给元素绑定事件监听
+       x.onclick = function(){
+           document.getElementById("dete").innerHTML = new Date();
+       }
+       //window.onload事件yongyu整个页面加载完成之后运行代码
+       window.onload = function(){
+           alert("整个页面已加载完成")
+       }
+       //onchange当文本框内的文本发生变化并且焦点从元素中丢失中 调用事件处理程序
+       //当用户名改变时 将其转变为大写
+       function change(){
+           var x = document.getElementById("name");
+           x.value= x.value.toUpperCase();//转为大写
+       }
+
+       //事件监听
+      // element.addEventListener("clicl",myFunction1);//在添加事件类型时没有on
+       //element.addEventListener("mouseover",myFunction1);
+       function myFunction1(){
+          alert("Hello JavaScript");
+       }
+ 
+    //创建一个事件处理 执行后自动删除
+    var btn = document.getElementById("demo");
+    btn.addEventListener("click",myFunction2);
+    function myFunction2(){
+        alert(Math.random());
+        btn.removeEventListener("click",myFunction2);
+    }
+ 
+    //幻灯片案列
+    var images = [
+        "/image/2.jpg",
+        "/image/3.jpg",
+        "/image/4.jpg",
+        "/image/5.jpg",
+        "/image/6.jpg"
+    ];
+    var num = 0;
+    function next(){
+        var slider = document.getElementById("slider");
+        num ++;
+        if(num >=images.length){
+            num = 0;
+        }
+        slider.src = images[num];
+    }
+    function prev(){
+        var slider = document.getElementById("slider");
+        num --;
+        if(num<0){
+            num = images.length-1;
+        }
+        slider.src = images[num];
+    }
+
+    //表单验证
+    function validate(){
+        var n1 = document.getElementById("num1");
+        var n2 = document.getElementById("num2");
+        if(n1.value !=""&&n2.value !=""){
+           if(n1.value == n2.value){
+               return true;
+           }
+        }
+        alert("输入两个值不相等，请重新输入");
+        return false;
+    }
+    </script>
+</body>
+</html>

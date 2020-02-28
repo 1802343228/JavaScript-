@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width:600px;
+            height:400px;
+            background: aquamarine;
+            position: relative;
+        }
+        #box{
+            width:60px;
+            height:60px;
+            background: cadetblue;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+<div id="box" class="box">
+    <span class="container">Hi I am Loen!</span>
+</div>
+
+<p class="container">This is a paragraph</p>
+<p>hi</p>
+<p>hello</p>
+<p>hi</p>
+<img src="/image/1.jpg" id="my-img" alt="" style="width:200px;"/>
+</div>
+<div class="demo">
+一些文本
+<p id="p1">第一个段落</p>
+<p id="p2">第二个段落</p>
+</div>
+<script>
+  /*  //定义move()函数
+    var pos = 0;//开始的位置
+    var box = document.getElementById("box");//获取box元素
+    function move(){
+        pos +=1;
+        box.style.left = pos+"px";//px=pixels
+    }
+    //创建一个每1秒调用一个move()函数的计时器
+    var t = setInterval(move,1000);
+    //给move()添加一个函数检查 当盒子到达容器末尾使用clearInterval()停止计时器
+    function move(){
+        if(pos >=540){
+            clearInterval(t);
+        }
+        else{
+            pos += 1;
+            box.sttle.left = pos+"px";
+        }
+    }
+    */
+    var pos = 0;//开始的位置
+    var box = document.getElementById("box");
+    var t = setInterval(move,10);
+    function move(){
+        if(pos >= 540){
+            clearInterval(t);
+        }
+        else{
+            pos += 1;
+            box.sttle.left = pos+"px";
+        }
+    }
+    var arr = document.getElementsByClassName("container");
+    //访问第二个元素
+    arr[1].innerHTML = "Hi I am Peter";
+
+    var arrs=document.getElementsByTagName("p");
+    for(var x = 0;x<arr.length;x++){
+        arr[x].innerHTML = "hi there";
+    }
+
+    var e1 = document.getElementById("my-img");
+    e1.src = "/image/2.jpg";
+    e1.style.width = "150px;"//style可以访问所有的样式属性
+
+    //添加一个新段落
+    var p = document.createElement("p");
+    var node = document.createTextNode("一个新的文本");
+    //添加文本到段落
+    p.appendChild(node);
+
+    var div = document.getElementById("demo");
+    div.appendChild(p);//将段落添加到div中
+
+    var child = document.getElementById("p1");
+    div.removeChild(child);//移除元素
+    //另一种方法
+    //child.parntNode.removeChild(child);
+
+    //替换方法
+    parent.replaceCchild(p,child);
+</script>
+</body>
+</html>

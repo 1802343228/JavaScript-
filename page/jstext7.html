@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo">
+
+    </div>
+    <script>
+        var txt = new String("String");//创建String对象
+        //两种方法
+        var txt = "string";
+
+        //String方法
+        var str= 'Hello,siry';
+        var a=str.toLowerCase();//字符串转为小写
+        var b=str.toUpperCase();//字符串转为大写
+        var c = " hello world".trim()//去掉欺负串两边的空白
+        var n =str.indexOf("siry");//返回某字符串在值在字符串中首次出现的位置 这里返回7
+        var c1=str.indexOf("loe");//返回-1
+        var n1=str.replace("l","o");//将字符串首次出现的l替换成o
+        var n2=str.replace("/l/g","o");//用正则比配字符串将所有的l替换成o
+        document.write(str.substring(1,4));//提取字符串中两个指定的索引之间的字符
+
+        //window对象方法
+        var winInnerHeight=window.innerHeight;//返回窗口的文档显示区的高度
+        var winInnerWidth=window.innerWidth;//返回窗口的文档显示区的宽度
+        var winOuterWidth=window.outerWidth;//返回窗口的外部宽度 包括工具条和滚动条
+        var winScreenLeft=window.screenLeft;//返回相对于屏幕窗口的X坐标（位置）
+        var winScreenTop=window.screenTop;//返回相对于屏幕窗口的y坐标（位置）
+        
+        function open_win(){
+            window.open("http://www/baidu.com");//打开一个新的浏览器窗口
+        }
+        function openwin(){
+            myWindow=window.open(' ','','width=200.height=100');
+            myWindow=window.document.write("<p>这是我的窗口</p>");
+            myWindow.focus();//键盘焦点给予一个窗口
+        }
+        myWindow=window.open(' ','','width=200.height=100');
+        //myWindow.document.write('<p>这是一个新窗口</p>');
+        //3秒后窗口关闭
+        setTimeout(function(){myWindow.close()},3000);//setTimeout在指定毫秒数后调用某函数 3000毫秒=3秒
+        
+        var myVar;
+        function myFunction(){
+            maVar = setTimeout(function(){
+                alert("hello")
+            },3000);
+        }
+        function myStopFunction(){
+            clearTimeout(myVar);//阻止函数执行
+        }
+
+        /*JSON数组
+          {"siter":[
+            {"name":"baidu","url":"www.baidu.com"},
+            {"name":"google","url":"www.google.com"}
+        ]
+        }
+        */
+        var text = '{"siter":['+
+           ' {"name":"baidu","url":"www.baidu.com"},'+
+           ' {"name":"google","url":"www.google.com"}]}';
+        obj = JSON.parse(text);//将一个json字符串转换为对象
+        document.getElementById("demo").innerHTML=
+         obj.siter[1].name+" "+obj.siter[1].url;
+
+         /*JSON.parse(
+             '{"1":1,"2":2,"3":{"4":4,"5"：{"6":6}}}',
+             function(k,v){
+                 console.log(k);//输出当前属性名称 由内向外遍历 最后一个属性值为空字符串
+                 return v;//返回原始属性值 相当于没有传递reviver参数
+             }
+         )*/
+
+          var str = {"name":"baidu","url":"www.baidu.com"};
+         // str_pretty1 = json.stringify(str);
+          document.write("只有一个参数：");
+         // document.write("<br><pre>"+str_pretty1+"</pre>");
+          document.write("<br>");
+          //str_pretty2 = json.stringify(str,null,4)//使用四个空格缩进
+          document.write("使用参数情况");
+         // document.write("<br><pre>"+str_pretty2+"</pre>");//用于格式化输出
+
+          //Math对象
+          var number = Math.sqrt(4);
+          document.write(number);//2
+          var n = prompt("请输入一个数字：","");
+          var answer = Math.sqrt(n);
+          alert("数字"+ n + "的平方根是:"+answer);
+          //Math.floor()返回一个小于或等于给定一个数字的最大 整数 向下取整
+          Math.floor(45.55);//45
+          Math.floor(-45.55);//46
+          //Math.random()返回0-1（包括0）之间的随机数
+          Math.floor((Math.random()*10)+1);//返回1-10的随机数
+          //Math.round()四舍五入
+          x = Math.round(20.5);//20
+          x = Math.round(-20.51);//-21
+          x = Math.round(-20.5);//-21
+
+          //Date对象
+          var d1 = new Date(86400000);//Fri Jan 02 1970 08:00:00(中国标准时间)
+          var d2 = new Date("October 19,2017 15:56:00")//Thu Oct 19 2017 15:56:00
+          var d3 = new Date(85,5,11,11,55,0,0);//Sat Jun 11 1988 11:42:00
+          function printTime(){
+              var d = new Date();
+              var hours = d.getHours();
+              var mins = d.getMinutes();
+              var secs = d.getSeconds();
+              document.body.innerHTML = hours+":"+mins+":"+secs;
+
+          }
+          setInterval(printTime,1000);//第二个参数单位为毫秒 每隔一秒执行一次函数
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo"> </div>
+    <script>
+        //创建数组
+        var myCars= new Array('poi','oupai','nero')
+        var mycars= new Array()//也可以声明一个数组 不给数组传递任何参数 然后动态添加元素
+        mycars[0]='saab'
+        mycars[1]='Volovo'
+        mycars[2]='bmw'
+
+        //添加数组元素
+        var a=[];
+        a[0]='zero';
+        //也可以使用push()方法在数组末尾添加元素
+        a.push('one')
+        a.push('one','two')//也可以添加多个
+
+        //抛出数组
+        //pop()可以抛出数组末尾的值赋给一个变量
+        var oneDown = [1,3,5].pop();//oneDown的值为6 数组变为[1,4]
+        //shift()抛出的是第一个元素 
+        var twoDown = [1,3,5].shift();//现在twoDown为1
+        //unshift()方法在数组头部添加元素
+        var a=['zero']
+        a.unshift('one')
+        //concat()允许连接数组同时创建一个全新的数组
+        var c1= ['html','css']
+        var c2= ['js','java']
+        var courses=c1.concat(c2)//现在courese包含c1 c2全部元素
+
+        //forEach()方法 用来调用数组的每个元素 并回调给函数
+        var numbers=[23,32,45,54,57]
+        function myFunction(item,index){
+            var demo = document.getElementById('demo')
+            //item传递数值 index传递索引
+            demo.innerHTML=demo.innerHTML+'index['+index+']:'+item+'<br>'
+        }
+        numbers.forEach(myFunction)
+
+        //indexOf()方法 返回数组中某个指定元素的位置
+        //返回的是从左到右该元素第一次出现的位置 若没有该元素返回-1
+        var fruits = ['香蕉','草莓','橙子'];
+        var a = fruits.indexOf('草莓');//a为2
+        var b = fruits.indexOf('樱桃');//b为-1
+
+        //slice()方法可从一个数组中提取部分元素添加到一个新的数组中
+        var fruits=['banana','apple','lemon','orange'];
+        var citrus=fruits.slice(1,3);
+
+        var person = [];//空数组
+        person['name']='loen'
+        person['age']=28
+        console.log(person['age'])//返回28
+        //person变成了对象 而不是数组
+        //命名索引'name''age'变成了person的对象
+        //js不支持使用名称索引数组
+    </script>
+</body>
+</html>

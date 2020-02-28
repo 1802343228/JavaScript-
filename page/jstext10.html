@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var patt = /w3cschool/i;// /i不区分大小写
+        //search()方法使用正则表达式搜索"w3cschool"字符串 
+        var str = "Visit w3cschool";
+        var n = str.search(/w3cschool/i);
+        document.write(n+"<br>");//输出为6
+
+        //replace()方法使用正则表达式替换字符串
+        var str1 = "Visit Microsoft";
+        var res = str1.replace("Microsoft","w3cschool");
+        document.write(res+"<br>");
+
+        //text()检测一个字符串是否匹配某个模式 如果含有返回true 反之false
+        var patt1=/e/;
+       var str2= patt1.test("the best");
+        document.write(str2+"<br>");//true
+
+        //exec()检索字符串中的正则表达式的匹配 返回一个数组存放匹配结果
+        /e/.exec("the best");//返回e
+
+        //compile()改变regExp 也可以添加或删除第二个元素
+        var patt2=new RegExp("e");
+        document.write(patt2.test("the best")+"<br>");//true
+        patt2.compile("d");
+        document.write(patt2.test("the best")+"<br>");//compile将检索元素改成了d 所以返回false
+    </script>
+</body>
+</html>
